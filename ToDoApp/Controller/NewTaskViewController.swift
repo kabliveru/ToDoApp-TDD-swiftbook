@@ -5,8 +5,8 @@
 //  Created by Алексей Королев on 03.12.2021.
 //
 
-import UIKit
 import CoreLocation
+import UIKit
 
 class NewTaskViewController: UIViewController {
     @IBOutlet var titleTextField: UITextField!
@@ -16,33 +16,29 @@ class NewTaskViewController: UIViewController {
     @IBOutlet var descriptionTextField: UITextField!
     @IBOutlet var saveButton: UIButton!
     @IBOutlet var cancelButton: UIButton!
-    
+
     var taskManager: TaskManager!
     var geocoder = CLGeocoder()
-    
+
     var dateFormatter: DateFormatter {
         let df = DateFormatter()
         df.dateFormat = "dd.MM.yy"
         return df
     }
-    
-    func save() {
+
+    @IBAction func save() {
         let titleString = titleTextField.text
         let locationString = locationTextField.text
         let date = dateFormatter.date(from: dateTextField.text!)
         let descriptionString = descriptionTextField.text
         let addressString = addressTextField.text
-        geocoder.geocodeAddressString(addressString!) { [unowned self] (placemarks, _) in
+
+        geocoder.geocodeAddressString(addressString!) { [unowned self] placemarks, _ in
             let placemark = placemarks?.first
             let coordinate = placemark?.location?.coordinate
             let location = Location(name: locationString!, coordinate: coordinate)
             let task = Task(title: titleString!, description: descriptionString, date: date, location: location)
             self.taskManager.add(task: task)
         }
-        
     }
-
-    @IBAction func saveButton(_ sender: UIButton) {}
-
-    @IBAction func cancelButton(_ sender: UIButton) {}
 }

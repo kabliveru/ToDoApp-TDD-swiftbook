@@ -172,7 +172,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="save"/>
                                 <connections>
-                                    <action selector="saveButton:" destination="oNH-d2-k9j" eventType="touchUpInside" id="td3-lA-CrH"/>
+                                    <action selector="save" destination="oNH-d2-k9j" eventType="touchUpInside" id="dEU-Kd-iPX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hd6-2L-Lba">
@@ -180,9 +180,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="cancel"/>
-                                <connections>
-                                    <action selector="cancelButton:" destination="oNH-d2-k9j" eventType="touchUpInside" id="LPt-wg-wjg"/>
-                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="address" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EnR-uK-5wh">
                                 <rect key="frame" x="145" y="281" width="97" height="34"/>
