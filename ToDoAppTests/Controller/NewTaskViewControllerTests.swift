@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import ToDoApp
+import CoreLocation
 
 class NewTaskViewControllerTests: XCTestCase {
     
@@ -50,4 +51,29 @@ class NewTaskViewControllerTests: XCTestCase {
         XCTAssertTrue(sut.cancelButton.isDescendant(of: sut.view))
     }
 
+    
+    func testSaveUsesGeocoderToConvertCoordinateFromAddress() {
+        let df = DateFormatter()
+        df.dateFormat = "dd.MM.yy"
+        let date = df.date(from: "02.12.20")
+        
+        sut.titleTextField.text = "title1"
+        sut.locationTextField.text = "location1"
+        sut.dateTextField.text = "02.12.20"
+        sut.addressTextField.text = "Москва"
+        sut.descriptionTextField.text = "description1"
+
+        sut.taskManager = TaskManager()
+        
+        sut.save()
+        
+        let task = sut.taskManager?.task(at: 0)
+        let coordinate = CLLocationCoordinate2D(latitude: 55.7615902, longitude: 37.60946)
+        let location = Location(name: "location1", coordinate: coordinate)
+        let generatedTask = Task(title: "title1", description: "description1", date: date, location: location)
+        
+        XCTAssertEqual(task, generatedTask)
+    }
+    
+    
 }
