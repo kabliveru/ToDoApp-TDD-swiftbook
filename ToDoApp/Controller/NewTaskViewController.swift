@@ -1,9 +1,4 @@
-//
-//  NewTaskViewController.swift
-//  ToDoApp
-//
-//  Created by Алексей Королев on 03.12.2021.
-//
+//  Created by Алексей Королев
 
 import CoreLocation
 import UIKit
@@ -18,6 +13,7 @@ class NewTaskViewController: UIViewController {
     @IBOutlet var cancelButton: UIButton!
 
     var taskManager: TaskManager!
+
     var geocoder = CLGeocoder()
 
     var dateFormatter: DateFormatter {

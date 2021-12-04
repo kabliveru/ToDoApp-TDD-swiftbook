@@ -1,9 +1,4 @@
-//
-//  DetailViewControllerTests.swift
-//  ToDoAppTests
-//
-//  Created by Алексей Королев on 01.12.2021.
-//
+//  Created by Алексей Королев
 
 import CoreLocation
 @testable import ToDoApp
@@ -31,12 +26,12 @@ class DetailViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.descriptionLabel)
         XCTAssertTrue(sut.descriptionLabel.isDescendant(of: sut.view))
     }
-    
+
     func testHasDateLabel() {
         XCTAssertNotNil(sut.dateLabel)
         XCTAssertTrue(sut.dateLabel.isDescendant(of: sut.view))
     }
-    
+
     func testHasLocationLabel() {
         XCTAssertNotNil(sut.locationLabel)
         XCTAssertTrue(sut.locationLabel.isDescendant(of: sut.view))
@@ -46,45 +41,45 @@ class DetailViewControllerTests: XCTestCase {
         XCTAssertNotNil(sut.mapView)
         XCTAssertTrue(sut.mapView.isDescendant(of: sut.view))
     }
-    
+
     func setupTaskAndAppearanceTransition() {
         let coordinate = CLLocationCoordinate2D(latitude: 55.4792046, longitude: 37.3273304)
         let location = Location(name: "location1", coordinate: coordinate)
-        let date = Date(timeIntervalSince1970: 1606927300)
+        let date = Date(timeIntervalSince1970: 1_606_927_300)
         let task = Task(title: "task1", description: "description1", date: date, location: location)
         sut.task = task
-        
+
         sut.beginAppearanceTransition(true, animated: true)
         sut.endAppearanceTransition()
     }
-    
+
     func testSettingTaskSetsTitleLabel() {
         setupTaskAndAppearanceTransition()
 
         XCTAssertEqual(sut.titleLabel.text, "task1")
     }
-    
+
     func testSettingTaskSetsDescriptionLabel() {
         setupTaskAndAppearanceTransition()
-        
+
         XCTAssertEqual(sut.descriptionLabel.text, "description1")
     }
-    
+
     func testSettingTaskSetsLocationLabel() {
         setupTaskAndAppearanceTransition()
-        
+
         XCTAssertEqual(sut.locationLabel.text, "location1")
     }
-    
+
     func testSettingTaskSetsDateLabel() {
         setupTaskAndAppearanceTransition()
-        
+
         XCTAssertEqual(sut.dateLabel.text, "02.12.20")
     }
-    
+
     func testSettingTaskSetsMapView() {
         setupTaskAndAppearanceTransition()
-        
+
         XCTAssertEqual(sut.mapView.centerCoordinate.latitude, 55.4792046, accuracy: 0.001)
         XCTAssertEqual(sut.mapView.centerCoordinate.longitude, 37.3273304, accuracy: 0.001)
     }

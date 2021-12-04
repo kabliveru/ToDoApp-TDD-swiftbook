@@ -1,9 +1,4 @@
-//
-//  DetailViewController.swift
-//  ToDoApp
-//
-//  Created by Алексей Королев on 01.12.2021.
-//
+//  Created by Алексей Королев
 
 import MapKit
 import UIKit

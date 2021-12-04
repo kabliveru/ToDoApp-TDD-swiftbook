@@ -1,17 +1,11 @@
-//
-//  TaskListViewControllerTests.swift
-//  ToDoAppTests
-//
-//  Created by Алексей Королев on 29.11.2021.
-//
+//  Created by Алексей Королев
 
-import XCTest
 @testable import ToDoApp
+import XCTest
 
 class TaskListViewControllerTests: XCTestCase {
-
     var sut: TaskListViewController!
-    
+
     override func setUpWithError() throws {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: String(describing: TaskListViewController.self))
@@ -30,7 +24,7 @@ class TaskListViewControllerTests: XCTestCase {
     func testWhenViewIsLoadedDataProviderNotNil() {
         XCTAssertNotNil(sut.dataProvider)
     }
-    
+
     func testWhenViewIsLoadedTableViewDelegateIsSet() {
         XCTAssertTrue(sut.tableView.delegate is DataProvider)
     }
@@ -41,9 +35,6 @@ class TaskListViewControllerTests: XCTestCase {
 
     func testWhenViewIsLoadedTableViewDelegateEqualsTableViewDataSource() {
         XCTAssertEqual(sut.tableView.delegate as? DataProvider,
-                       sut.tableView.dataSource as? DataProvider
-        )
+                       sut.tableView.dataSource as? DataProvider)
     }
-    
-    
 }

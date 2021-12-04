@@ -1,9 +1,4 @@
-//
-//  TaskCellTests.swift
-//  ToDoAppTests
-//
-//  Created by Алексей Королев on 01.12.2021.
-//
+//  Created by Алексей Королев
 
 @testable import ToDoApp
 import XCTest
@@ -79,9 +74,8 @@ class TaskCellTests: XCTestCase {
     func configureCellWithTask() {
         let task = Task(title: "task1")
         cell.configure(withTask: task, done: true)
-
     }
-    
+
     func testDoneTaskShouldStrikeThrough() {
         configureCellWithTask()
         let attributeString = NSAttributedString(string: "task1", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
@@ -104,11 +98,11 @@ class TaskCellTests: XCTestCase {
 
 extension TaskCellTests {
     class FakeDataSource: NSObject, UITableViewDataSource {
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
             1
         }
 
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
             UITableViewCell()
         }
     }

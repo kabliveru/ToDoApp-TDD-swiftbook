@@ -1,3 +1,5 @@
+//  Created by Алексей Королев
+
 ////
 ////  ToDoAppUITestsLaunchTests.swift
 ////  ToDoAppUITests
@@ -5,9 +7,9 @@
 ////  Created by Алексей Королев on 26.11.2021.
 ////
 //
-//import XCTest
+// import XCTest
 //
-//class ToDoAppUITestsLaunchTests: XCTestCase {
+// class ToDoAppUITestsLaunchTests: XCTestCase {
 //
 //    override class var runsForEachTargetApplicationUIConfiguration: Bool {
 //        true
@@ -29,4 +31,4 @@
 //        attachment.lifetime = .keepAlways
 //        add(attachment)
 //    }
-//}
+// }

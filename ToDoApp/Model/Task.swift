@@ -1,9 +1,4 @@
-//
-//  Task.swift
-//  ToDoApp
-//
-//  Created by Алексей Королев on 26.11.2021.
-//
+//  Created by Алексей Королев
 
 import Foundation
 

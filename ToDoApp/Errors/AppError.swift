@@ -1,16 +1,10 @@
-//
-//  AppError.swift
-//  ToDoApp
-//
-//  Created by Алексей Королев on 01.12.2021.
-//
+//  Created by Алексей Королев
 
 import Foundation
 
 enum AppError {
     case taskManagerIsNil
     case sectionOutOfRange(section: Int)
-    
 }
 
 extension AppError: Error {
@@ -18,7 +12,7 @@ extension AppError: Error {
         switch self {
         case .taskManagerIsNil:
             return NSLocalizedString("taskManager is nil", comment: "")
-        case .sectionOutOfRange(let section):
+        case let .sectionOutOfRange(section):
             return NSLocalizedString("section \(section) out of range", comment: "")
         }
     }

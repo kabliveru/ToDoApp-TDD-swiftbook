@@ -1,9 +1,4 @@
-//
-//  TaskCell.swift
-//  ToDoApp
-//
-//  Created by Алексей Королев on 29.11.2021.
-//
+//  Created by Алексей Королев
 
 import UIKit
 
@@ -21,15 +16,15 @@ class TaskCell: UITableViewCell {
     func configure(withTask task: Task, done: Bool = false) {
         if done {
             let attributeString = NSAttributedString(string: task.title, attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
-            self.titleLabel.attributedText = attributeString
-            self.dateLabel = nil
-            self.locationLabel = nil
+            titleLabel.attributedText = attributeString
+            dateLabel = nil
+            locationLabel = nil
 
         } else {
-            let dateString = self.dateFormatter.string(from: task.date)
-            self.dateLabel.text = dateString
-            self.titleLabel.text = task.title
-            self.locationLabel.text = task.location?.name
+            let dateString = dateFormatter.string(from: task.date)
+            dateLabel.text = dateString
+            titleLabel.text = task.title
+            locationLabel.text = task.location?.name
         }
     }
 }

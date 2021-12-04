@@ -1,21 +1,12 @@
-//
-//  TaskListViewController.swift
-//  ToDoApp
-//
-//  Created by Алексей Королев on 26.11.2021.
-//
+//  Created by Алексей Королев
 
 import UIKit
 
 class TaskListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var dataProvider: DataProvider!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
-
-
 }
-
